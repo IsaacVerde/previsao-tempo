@@ -23,17 +23,34 @@ function cliqueiNoBotao() {
 const accessKey = 'dMnTThOLPCS1G_lbNhyAFO0tsx5WCtle5eCBlFDUabU'; // Substitua pela sua chave de API do Unsplash
 const collectionId = '431862'; // ID da coleção do Unsplash
 const background = document.getElementById('background');
+let images = [];
+let currentIndex = 0;
 
-async function fetchImage() {
-    const response = await fetch(`https://api.unsplash.com/collections/${collectionId}/photos?client_id=${accessKey}&per_page=1&orientation=landscape`);
-    const data = await response.json();
-    return data[0].urls.full;
+async function fetchImages() {
+    try {
+        const response = await fetch(`https://api.unsplash.com/collections/${collectionId}/photos?client_id=${accessKey}&per_page=10&orientation=landscape`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch images');
+        }
+        const data = await response.json();
+        images = data.map(img => img.urls.full);
+        console.log('Images fetched:', images);
+    } catch (error) {
+        console.error(error);
+        images = []; // Reseta imagens em caso de erro
+    }
 }
 
 async function updateBackground() {
-    const imageUrl = await fetchImage();
-    background.style.backgroundImage = `url(${imageUrl})`;
+    if (images.length === 0) {
+        await fetchImages();
+    }
+    if (images.length > 0) {
+        background.style.backgroundImage = `url(${images[currentIndex]})`;
+        console.log('Background updated:', images[currentIndex]);
+        currentIndex = (currentIndex + 1) % images.length;
+    }
 }
 
-setInterval(updateBackground, 5000); // Altere o intervalo conforme necessário
+setInterval(updateBackground, 10000); // Altere o intervalo conforme necessário
 updateBackground();
