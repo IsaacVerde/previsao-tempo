@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+}
+
+.caixa-maior {
+    position: relative;
+    z-index: 1;
+    background: #000;
+    opacity: 0.8;
+    border-radius: 25px;
+    padding: 20px;
+    width: 95%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+.input-cidade {
+    width: 80%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 18px;
+    background-color: rgb(105, 91, 91);
+    color: aliceblue;
+    padding-right: 45px; /* Espaço para o botão */
+}
+
+.botao-busca {
+    position: absolute;
+    right: 10px;
+    top: 13%;
+    transform: translateY(-50%);
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: rgb(105, 91, 91);
+    cursor: pointer;
+}
+
+.img-busca {
+    width: 20px;
+}
+
+.caixa-media {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.cidade {
+    color: aliceblue;
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.temp {
+    font-size: 20px;
+    color: aliceblue;
+    margin-top: 20px;
+}
+
+.caixa-menor {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.texto-previsao {
+    color: aliceblue;
+    margin-left: 20px;
+    text-transform: capitalize;
+}
+
+.umidade {
+    color: aliceblue;
+    margin-top: 20px;
+}
+
+.container {
+    display: block;
+    background-color: aliceblue;
+    opacity: 50%;
+    border-radius: 10px;
+    position: absolute;
+    top: 125px;
+    height: 50px;
+    width: 450px;
+    transform: translateY(-60%);
+    border-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.aviso {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
